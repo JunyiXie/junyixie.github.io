@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Parallel on xiejunyi blog</title>
+    <link>http://localhost:1313/tags/parallel/</link>
+    <description>Recent content in Parallel on xiejunyi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 31 Mar 2021 15:43:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/parallel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementation Python Interpreter Parallel in Python 3.10</title>
+      <link>http://localhost:1313/post/python-interpreter-parallell/</link>
+      <pubDate>Wed, 31 Mar 2021 15:43:48 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/python-interpreter-parallell/</guid>
+      <description>在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们</description>
+    </item>
+    
+  </channel>
+</rss>
