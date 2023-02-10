@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Python Interpreter Performance Optimizations In 3.6 ~ 3.11 | xiejunyi blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Python Interpreter Performance Optimizations In 3.6 ~ 3.11" />
+<meta property="og:description" content="3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/python-performance-optimizations-between-3.6-and-3.11.md/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-07-31T15:43:48+08:00" />
+<meta property="article:modified_time" content="2022-07-31T15:43:48+08:00" />
+<meta itemprop="name" content="Python Interpreter Performance Optimizations In 3.6 ~ 3.11">
+<meta itemprop="description" content="3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3."><meta itemprop="datePublished" content="2022-07-31T15:43:48+08:00" />
+<meta itemprop="dateModified" content="2022-07-31T15:43:48+08:00" />
+<meta itemprop="wordCount" content="453">
+<meta itemprop="keywords" content="python,interpreter,optimization,performance," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python Interpreter Performance Optimizations In 3.6 ~ 3.11"/>
+<meta name="twitter:description" content="3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        xiejunyi blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="This is Home page">
+              This is Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="" title="Github page">
+              Github
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Python Interpreter Performance Optimizations In 3.6 ~ 3.11</h1>
+      
+      <p class="tracked">
+        By <strong>xiejunyi</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-07-31T15:43:48+08:00">July 31, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="311">3.11</h1>
+<ul>
+<li>Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.)
+<ul>
+<li>Streamlined the frame creation process.</li>
+<li>Avoided memory allocation by generously re-using frame space on the C stack.</li>
+<li>Streamlined the internal frame struct to contain only essential information. Frames  previously held extra debugging and memory management information.</li>
+</ul>
+</li>
+<li>Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.)
+<ul>
+<li>In 3.11, when CPython detects Python code calling another Python function, it sets up a new frame, and “jumps” to the new code inside the new frame. This avoids calling the C interpreting function altogether.</li>
+</ul>
+</li>
+<li>Specializing Adaptive Interpreter
+<ul>
+<li>PEP 659 is a key part of the performance optimization effort in CPython. It focuses on type stability, a common pattern in dynamic programming languages, by replacing current operations with specialized ones that are faster and use fast paths. This is done through inline caching and combining common instruction pairs into one superinstruction. Python will only specialize when code is &ldquo;hot&rdquo; and executed multiple times, and will adapt to new circumstances by periodically attempting specialization. This approach is aimed at improving the performance of CPython while maintaining its dynamic nature.</li>
+</ul>
+</li>
+</ul>
+<h1 id="310">3.10</h1>
+<ul>
+<li>
+<p>The LOAD_ATTR instruction now uses new “per opcode cache” mechanism. It is about 36% faster now for regular attributes and 44% faster for slots. (Contributed by Pablo Galindo and Yury Selivanov in bpo-42093 and Guido van Rossum in bpo-42927, based on ideas implemented originally in PyPy and MicroPython.)</p>
+</li>
+<li>
+<p>Add micro-optimizations to _PyType_Lookup() to improve type attribute cache lookup performance in the common case of cache hits. This makes the interpreter 1.04 times faster on average. (Contributed by Dino Viehland in bpo-43452.)</p>
+</li>
+</ul>
+<h1 id="39">3.9</h1>
+<ul>
+<li>a number of Python builtins (range, tuple, set, frozenset, list, dict) are now sped up using PEP 590 vectorcall;</li>
+</ul>
+<h1 id="38">3.8</h1>
+<p>Vectorcall, <a href="https://peps.python.org/pep-0590/">https://peps.python.org/pep-0590/</a>
+This is a new protocol for calling Python functions, and it has faster performance compared to the original protocol.
+PEP590 proposes a new calling convention aimed at improving the performance and flexibility of Python code and built-in functions. The current calling convention tp_call is flexible enough, but its performance is poor, mainly because temporary tuples and dictionaries need to be created during the calling process, resulting in reduced performance. The new calling convention proposed by PEP590 is not completely general, but it covers the vast majority of cases and improves performance by reducing the creation of temporary objects and call indirection.</p>
+<h1 id="37">3.7</h1>
+<ul>
+<li>Accelerated function call performance: The performance of function calls in CPython 3.7 has been improved, making it faster to call functions. <a href="https://github.com/python/cpython/issues/70298">https://github.com/python/cpython/issues/70298</a></li>
+</ul>
+<h1 id="36">3.6</h1>
+<ul>
+<li>Improved dictionaries: The implementation of dictionaries in CPython 3.6 has been changed to make them faster, more compact, and better suited for concurrency.</li>
+<li>&ndash;with-lto</li>
+<li>&ndash;enable-optimizations</li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/interpreter/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">interpreter</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/optimization/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">optimization</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/performance/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">performance</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/about/">About</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  xiejunyi blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
