@@ -45,6 +45,15 @@ Virtual-Machine Abstraction and Optimization Techniques</description>
     </item>
     
     <item>
+      <title>cpython ARM64 baseline-JIT Implementation, 20% speed up</title>
+      <link>http://localhost:1313/post/cpython-arm-jit/</link>
+      <pubDate>Wed, 24 Nov 2021 15:43:48 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cpython-arm-jit/</guid>
+      <description>背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A</description>
+    </item>
+    
+    <item>
       <title>Implementation Python Interpreter Parallel in Python 3.10</title>
       <link>http://localhost:1313/post/python-interpreter-parallell/</link>
       <pubDate>Wed, 31 Mar 2021 15:43:48 +0800</pubDate>

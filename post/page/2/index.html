@@ -129,61 +129,16 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
-        August 31, 2022
+        March 31, 2021
       </div>
     
     <h1 class="f3 near-black">
-      <a href="/post/interpreter-performance-optimization-design-references/" class="link black dim">
-        Interpreter Performance Optimization And Design: Key Papers
+      <a href="/post/python-interpreter-parallell/" class="link black dim">
+        Implementation Python Interpreter Parallel in Python 3.10
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction In the past two years, when I was working in ByteDance, I did a lot of work on the design and optimization the Python interpreter. This article lists the papers that I find very helpful.
-https://www.reddit.com/r/programming/comments/wzrcb/implementing_fast_interpreters/
-Vmgen—a generator of efficient virtual machine interpreters
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.16.7676&amp;rep=rep1&amp;type=pdf
-Trace-based just-in-time type specialization for dynamic languages
-Optimization of dynamic languages using hierarchical layering of virtual machines
-Virtual machine showdown: Stack versus registers
-Virtual-Machine Abstraction and Optimization Techniques
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 31, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/python-performance-optimizations-between-3.6-and-3.11.md/" class="link black dim">
-        Python Interpreter Performance Optimizations In 3.6 ~ 3.11
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        November 24, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/cpython-arm-jit/" class="link black dim">
-        cpython ARM64 baseline-JIT Implementation, 20% speed up
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A
+      在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们
     </div>
   </div>
 
@@ -192,23 +147,23 @@ Virtual-Machine Abstraction and Optimization Techniques
     </aside>
     
     <ul class="pagination pagination-default">
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      <li class="page-item">
+        <a href="/post/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
       </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      <li class="page-item">
+        <a href="/post/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/" aria-label="Page 1" class="page-link" role="button">1</a>
       </li>
       <li class="page-item active">
-        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+        <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
       </li>
-      <li class="page-item">
-        <a href="/post/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
       </li>
-      <li class="page-item">
-        <a href="/post/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/post/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
   </article>
