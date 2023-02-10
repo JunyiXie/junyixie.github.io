@@ -97,12 +97,6 @@
             </a>
           </li>
           
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="" title="Github page">
-              Github
-            </a>
-          </li>
-          
         </ul>
       
       
@@ -192,9 +186,10 @@
 <li>a number of Python builtins (range, tuple, set, frozenset, list, dict) are now sped up using PEP 590 vectorcall;</li>
 </ul>
 <h1 id="38">3.8</h1>
-<p>Vectorcall, <a href="https://peps.python.org/pep-0590/">https://peps.python.org/pep-0590/</a>
-This is a new protocol for calling Python functions, and it has faster performance compared to the original protocol.
-PEP590 proposes a new calling convention aimed at improving the performance and flexibility of Python code and built-in functions. The current calling convention tp_call is flexible enough, but its performance is poor, mainly because temporary tuples and dictionaries need to be created during the calling process, resulting in reduced performance. The new calling convention proposed by PEP590 is not completely general, but it covers the vast majority of cases and improves performance by reducing the creation of temporary objects and call indirection.</p>
+<ul>
+<li>Vectorcall, <a href="https://peps.python.org/pep-0590/">https://peps.python.org/pep-0590/</a> This is a new protocol for calling Python functions, and it has faster performance compared to the original protocol.
+PEP590 proposes a new calling convention aimed at improving the performance and flexibility of Python code and built-in functions. The current calling convention tp_call is flexible enough, but its performance is poor, mainly because temporary tuples and dictionaries need to be created during the calling process, resulting in reduced performance. The new calling convention proposed by PEP590 is not completely general, but it covers the vast majority of cases and improves performance by reducing the creation of temporary objects and call indirection.</li>
+</ul>
 <h1 id="37">3.7</h1>
 <ul>
 <li>Accelerated function call performance: The performance of function calls in CPython 3.7 has been improved, making it faster to call functions. <a href="https://github.com/python/cpython/issues/70298">https://github.com/python/cpython/issues/70298</a></li>
