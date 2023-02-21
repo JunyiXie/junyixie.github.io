@@ -128,6 +128,231 @@
     <section class="ph4">
       
         <h2 class="f1">
+          <a href="/categories/interpreter/" class="link blue hover-black">
+            Category: interpreter
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 17, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/wasm-performance/" class="link black dim">
+        WebAssembly Runtime Performance Notes
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction WebAssembly has huge implications for the web platform — it provides a way to run code written in multiple languages on the web at near native speed, with client apps running on the web that previously couldn&rsquo;t have done so.
+WebAssembly is designed to complement and run alongside JavaScript — using the WebAssembly JavaScript APIs, you can load WebAssembly modules into a JavaScript app and share functionality between the two.
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 31, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/interpreter-performance-optimization-design-references/" class="link black dim">
+        Interpreter Performance Optimization And Design: Key Papers
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction In the past two years, when I was working in ByteDance, I did a lot of work on the design and optimization the Python interpreter. This article lists the papers that I find very helpful.
+https://www.reddit.com/r/programming/comments/wzrcb/implementing_fast_interpreters/
+Vmgen—a generator of efficient virtual machine interpreters
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.16.7676&amp;rep=rep1&amp;type=pdf
+Trace-based just-in-time type specialization for dynamic languages
+Optimization of dynamic languages using hierarchical layering of virtual machines
+Virtual machine showdown: Stack versus registers
+Virtual-Machine Abstraction and Optimization Techniques
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 31, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python-performance-optimizations-between-3.6-and-3.11.md/" class="link black dim">
+        Python Interpreter Performance Optimizations In 3.6 ~ 3.11
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        November 24, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/cpython-arm-jit/" class="link black dim">
+        cpython ARM64 baseline-JIT Implementation, 20% speed up
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        March 31, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python-interpreter-parallell/" class="link black dim">
+        Implementation Python Interpreter Parallel in Python 3.10
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/categories/virtual-machine/" class="link blue hover-black">
+            Category: virtual machine
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 17, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/wasm-performance/" class="link black dim">
+        WebAssembly Runtime Performance Notes
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction WebAssembly has huge implications for the web platform — it provides a way to run code written in multiple languages on the web at near native speed, with client apps running on the web that previously couldn&rsquo;t have done so.
+WebAssembly is designed to complement and run alongside JavaScript — using the WebAssembly JavaScript APIs, you can load WebAssembly modules into a JavaScript app and share functionality between the two.
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 31, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/interpreter-performance-optimization-design-references/" class="link black dim">
+        Interpreter Performance Optimization And Design: Key Papers
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction In the past two years, when I was working in ByteDance, I did a lot of work on the design and optimization the Python interpreter. This article lists the papers that I find very helpful.
+https://www.reddit.com/r/programming/comments/wzrcb/implementing_fast_interpreters/
+Vmgen—a generator of efficient virtual machine interpreters
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.16.7676&amp;rep=rep1&amp;type=pdf
+Trace-based just-in-time type specialization for dynamic languages
+Optimization of dynamic languages using hierarchical layering of virtual machines
+Virtual machine showdown: Stack versus registers
+Virtual-Machine Abstraction and Optimization Techniques
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 31, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python-performance-optimizations-between-3.6-and-3.11.md/" class="link black dim">
+        Python Interpreter Performance Optimizations In 3.6 ~ 3.11
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        November 24, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/cpython-arm-jit/" class="link black dim">
+        cpython ARM64 baseline-JIT Implementation, 20% speed up
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A
+    </div>
+  </div>
+
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        March 31, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python-interpreter-parallell/" class="link black dim">
+        Implementation Python Interpreter Parallel in Python 3.10
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/categories/wasm/" class="link blue hover-black">
+            Category: wasm
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 17, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/wasm-performance/" class="link black dim">
+        WebAssembly Runtime Performance Notes
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction WebAssembly has huge implications for the web platform — it provides a way to run code written in multiple languages on the web at near native speed, with client apps running on the web that previously couldn&rsquo;t have done so.
+WebAssembly is designed to complement and run alongside JavaScript — using the WebAssembly JavaScript APIs, you can load WebAssembly modules into a JavaScript app and share functionality between the two.
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
           <a href="/categories/development/" class="link blue hover-black">
             Category: Development
           </a>
@@ -210,172 +435,8 @@ Virtual-Machine Abstraction and Optimization Techniques
         
       
         <h2 class="f1">
-          <a href="/categories/interpreter/" class="link blue hover-black">
-            Category: interpreter
-          </a>
-        </h2>
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        August 31, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/interpreter-performance-optimization-design-references/" class="link black dim">
-        Interpreter Performance Optimization And Design: Key Papers
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction In the past two years, when I was working in ByteDance, I did a lot of work on the design and optimization the Python interpreter. This article lists the papers that I find very helpful.
-https://www.reddit.com/r/programming/comments/wzrcb/implementing_fast_interpreters/
-Vmgen—a generator of efficient virtual machine interpreters
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.16.7676&amp;rep=rep1&amp;type=pdf
-Trace-based just-in-time type specialization for dynamic languages
-Optimization of dynamic languages using hierarchical layering of virtual machines
-Virtual machine showdown: Stack versus registers
-Virtual-Machine Abstraction and Optimization Techniques
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 31, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/python-performance-optimizations-between-3.6-and-3.11.md/" class="link black dim">
-        Python Interpreter Performance Optimizations In 3.6 ~ 3.11
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        November 24, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/cpython-arm-jit/" class="link black dim">
-        cpython ARM64 baseline-JIT Implementation, 20% speed up
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        March 31, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/python-interpreter-parallell/" class="link black dim">
-        Implementation Python Interpreter Parallel in Python 3.10
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们
-    </div>
-  </div>
-
-        
-      
-        <h2 class="f1">
           <a href="/categories/python/" class="link blue hover-black">
             Category: python
-          </a>
-        </h2>
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        August 31, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/interpreter-performance-optimization-design-references/" class="link black dim">
-        Interpreter Performance Optimization And Design: Key Papers
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction In the past two years, when I was working in ByteDance, I did a lot of work on the design and optimization the Python interpreter. This article lists the papers that I find very helpful.
-https://www.reddit.com/r/programming/comments/wzrcb/implementing_fast_interpreters/
-Vmgen—a generator of efficient virtual machine interpreters
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.16.7676&amp;rep=rep1&amp;type=pdf
-Trace-based just-in-time type specialization for dynamic languages
-Optimization of dynamic languages using hierarchical layering of virtual machines
-Virtual machine showdown: Stack versus registers
-Virtual-Machine Abstraction and Optimization Techniques
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 31, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/python-performance-optimizations-between-3.6-and-3.11.md/" class="link black dim">
-        Python Interpreter Performance Optimizations In 3.6 ~ 3.11
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      3.11 Cheaper, lazy Python frames, 3-7% speedup in pyperformance (Contributed by Mark Shannon in bpo-44590.) Streamlined the frame creation process. Avoided memory allocation by generously re-using frame space on the C stack. Streamlined the internal frame struct to contain only essential information. Frames previously held extra debugging and memory management information. Inlined Python function calls, measured a 1-3% improvement in pyperformance. (Contributed by Pablo Galindo and Mark Shannon in bpo-45256.) In 3.
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        November 24, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/cpython-arm-jit/" class="link black dim">
-        cpython ARM64 baseline-JIT Implementation, 20% speed up
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      背景 目前开源并没有可参考的，完善的，有显著性能提升的，ARM64下的cpython JIT实现。只能我们参考已由的x86架构下的实现方案，在A
-    </div>
-  </div>
-
-        
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        March 31, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/python-interpreter-parallell/" class="link black dim">
-        Implementation Python Interpreter Parallel in Python 3.10
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      在业务场景中，我们通过cpython执行算法包，由于cpython的实现，在一个进程内，无法利用CPU的多个核心去同时执行算法包。对此，我们
-    </div>
-  </div>
-
-        
-      
-        <h2 class="f1">
-          <a href="/categories/virtual-machine/" class="link blue hover-black">
-            Category: virtual machine
           </a>
         </h2>
         
